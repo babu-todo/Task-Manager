@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professional Task Scheduler</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            margin:0;
+            font-family:'Segoe UI',sans-serif;
+            background:#eef2f7;
+        }
+
+        .header{
+            background:linear-gradient(90deg,#1f4e79,#2c3e50);
+            color:white;
+            padding:20px;
+            text-align:center;
+            font-size:30px;
+            font-weight:bold;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .dashboard{
+            display:flex;
+            gap:20px;
+            padding:20px;
+            height:calc(100vh - 90px);
+        }
+
+        .left-panel{
+            width:35%;
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .right-panel{
+            width:65%;
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        input,select,button{
+            width:100%;
+            padding:12px;
+            margin-top:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:15px;
+        }
+
+        button{
+            background:#27ae60;
+            color:white;
+            border:none;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        button:hover{
+            background:#219150;
+        }
+
+        ul{
+            padding:0;
+        }
+
+        li{
+            list-style:none;
+            background:#f8f9fa;
+            margin-top:10px;
+            padding:15px;
+            border-radius:10px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            box-shadow:0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        canvas{
+            max-width:100%;
+            height:350px !important;
+        }
+
+        h2{
+            margin-top:0;
+            color:#2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    Task Scheduling Dashboard
+</div>
+
+<div class="dashboard">
+
+    <div class="left-panel">
+        <h2>Add New Task</h2>
+
+        <input id="taskInput" placeholder="Enter task">
+
+        <select id="priority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+        </select>
+
+        <input type="datetime-local" id="dueDate">
+
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="right-panel">
+
+        <div class="card">
+            <h2>Task List</h2>
+            <ul id="taskList"></ul>
+        </div>
+
+        <div class="card">
+            <h2>Task Analytics</h2>
+            <canvas id="taskChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
